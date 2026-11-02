@@ -1,0 +1,127 @@
+{
+  "source": "FAKE SAMPLE — not a real program",
+  "notes": {
+    "dayNumbering": "Sample note: Day 1 is Monday through Day 7 Sunday. Not a real program."
+  },
+  "schedule": [
+    { "week": 1, "dayOfWeek": "Monday", "workout": "Sample Push" },
+    { "week": 1, "dayOfWeek": "Tuesday", "workout": "Sample Pull" },
+    { "week": 1, "dayOfWeek": "Wednesday", "workout": "Rest" },
+    { "week": 1, "dayOfWeek": "Thursday", "workout": "Sample Legs" },
+    { "week": 13, "dayOfWeek": "Saturday", "workout": "Deload" },
+    { "week": 13, "dayOfWeek": "Sunday", "workout": "Sample Sendoff" }
+  ],
+  "days": [
+    {
+      "week": 1,
+      "day": 1,
+      "dayOfWeek": "Monday",
+      "workout": "Sample Push",
+      "titlePrinted": "Week 1 Day 1: Sample Push",
+      "focus": "Sample Focus A",
+      "page": 1,
+      "isRest": false,
+      "scheduleWorkout": "Sample Push",
+      "pageNote": "Sample page note for day 1.",
+      "footerNote": null,
+      "exercises": [
+        {
+          "name": "Sample Exercise A",
+          "sets": 3,
+          "reps": ["Set 1: 12-15", "Set 2: 8-12", "Set 3: 6x4 Cluster"],
+          "tempo": "3-1-1-0",
+          "rest": "90 sec",
+          "notes": "Sample note only."
+        },
+        {
+          "name": "Sample Exercise B",
+          "sets": 2,
+          "reps": ["8-12"],
+          "tempo": null,
+          "rest": "",
+          "notes": null,
+          "extra": "ignored"
+        }
+      ]
+    },
+    {
+      "week": 1,
+      "day": 2,
+      "dayOfWeek": "Tuesday",
+      "workout": "Sample Pull",
+      "titlePrinted": "Week 1 Day 2: Sample Pull",
+      "focus": "Sample Focus B",
+      "page": 2,
+      "isRest": false,
+      "scheduleWorkout": "Sample Pull",
+      "pageNote": null,
+      "footerNote": "Sample footer note.",
+      "exercises": [
+        {
+          "name": "  sample   exercise a  ",
+          "sets": 2,
+          "reps": ["10-12"],
+          "tempo": "2-0-2-0",
+          "rest": "2 min",
+          "notes": null
+        }
+      ]
+    },
+    {
+      "week": 1,
+      "day": 3,
+      "dayOfWeek": "Wednesday",
+      "workout": "Rest Day",
+      "titlePrinted": "Week 1 Day 3: Rest Day",
+      "focus": "",
+      "page": 3,
+      "isRest": true,
+      "scheduleWorkout": "Rest",
+      "restText": [
+        "Sample rest guidance line one.",
+        "Sample rest guidance line two."
+      ],
+      "pageNote": null,
+      "exercises": []
+    },
+    {
+      "week": 1,
+      "day": 4,
+      "dayOfWeek": "Thursday",
+      "workout": "Sample Legs",
+      "titlePrinted": "Week 1 Day 4: Sample Legs",
+      "focus": "Sample Focus C",
+      "flag": "Sample flag: fake warning note.",
+      "page": 4,
+      "isRest": false,
+      "scheduleWorkout": "Sample Legs",
+      "pageNote": null,
+      "footerNote": null,
+      "exercises": [
+        {
+          "name": "Sample Exercise C",
+          "sets": 1,
+          "reps": ["5-8"],
+          "tempo": "3-0-1-0",
+          "rest": "60 sec",
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "deload": {
+    "page": 99,
+    "title": "Sample Deload",
+    "text": "Sample deload text. This is fake placeholder copy, not a real program.",
+    "paragraphs": [
+      "Sample deload paragraph one.",
+      "Sample deload paragraph two."
+    ]
+  },
+  "glossary": [
+    {
+      "term": "Sample Term",
+      "text": "A fake glossary entry for tests."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "source": "FAKE SAMPLE ALT — not a real program",
+  "schedule": [],
+  "days": [
+    {
+      "week": 1,
+      "day": 1,
+      "dayOfWeek": "Monday",
+      "workout": "Sample Swap",
+      "titlePrinted": "Week 1 Day 1: Sample Swap",
+      "focus": "Sample Focus Swap",
+      "page": 1,
+      "isRest": false,
+      "scheduleWorkout": "Sample Swap",
+      "exercises": [
+        {
+          "name": "Sample Exercise A",
+          "sets": 1,
+          "reps": ["8-10"],
+          "tempo": null,
+          "rest": null,
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "deload": { "page": 1, "title": "Sample Deload", "text": "Alt deload.", "paragraphs": ["Alt deload."] },
+  "glossary": []
+}
