@@ -1,0 +1,15 @@
+{
+  "name": "lift-log",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 scripts/serve.py --port 4173 --dir site",
+    "test:model": "node --test tests/model.test.mjs",
+    "test:e2e": "playwright test",
+    "test": "node --test tests/model.test.mjs && playwright test",
+    "check:real": "node tests/check-real.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
