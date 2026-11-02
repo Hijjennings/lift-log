@@ -6,5 +6,7 @@ playwright/.cache/
 uploads/
 program.json
 program_*.json
+program.dec.json
+decrypted.json
 *.local.json
 .DS_Store

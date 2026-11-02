@@ -39,8 +39,11 @@ test.describe('private program file', () => {
     expect(pair).toBeTruthy();
     const [earlier, later] = pair;
 
-    await page.goto('/');
+    await page.goto('/#/settings');
+    await page.locator('[data-testid="advanced"] summary').click();
     await page.locator('#program-file').setInputFiles(programPath);
+    await expect(page.locator('[data-screen="day"]')).toBeVisible();
+    await page.goto('/#/program');
     await expect(page.locator('[data-screen="home"]')).toBeVisible();
     await expect(page.locator('a.day-link')).toHaveCount(91);
     const summary = await page.evaluate(() => {
@@ -75,7 +78,7 @@ test.describe('private program file', () => {
     const restLength = await page.evaluate(() => document.querySelector('[data-testid="rest-text"]')?.innerText.length || 0);
     expect(restLength).toBeGreaterThan(20);
     await page.getByRole('button', { name: 'Mark day complete' }).click();
-    await page.goto('/#/');
+    await page.goto('/#/program');
     const stillFirst = await page.evaluate(() => (
       document.querySelector('[data-testid="next-workout"] h2')?.textContent || ''
     ).startsWith('Week 1 Day 1'));
