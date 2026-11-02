@@ -230,6 +230,36 @@ button, .btn, .day-link, .tab {
   margin-top: 2px;
 }
 
+.day-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flag-mark {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(230, 194, 122, 0.16);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.day-flag {
+  margin: 6px 0 0;
+  max-width: 36rem;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
+
 .dow {
   width: 2.6rem;
   color: var(--faint);

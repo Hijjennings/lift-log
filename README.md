@@ -23,7 +23,7 @@ Do not commit a real `program.json`, excerpts, or screenshots that show real exe
 
 The app accepts the exported program shape, including extra fields:
 
-- `days[]` with `week`, `day` (1 = Monday … 7 = Sunday), `titlePrinted`, `focus`, `page`, `isRest`, `restText`, `pageNote`, `footerNote`, and `exercises`.
+- `days[]` with `week`, `day` (1 = Monday … 7 = Sunday), `titlePrinted`, `focus`, `page`, `isRest`, `restText`, `pageNote`, `footerNote`, optional `flag` (a short warning string), and `exercises`.
 - Rest days (`isRest: true`) show `restText` and can be checked off. **Next workout** skips them.
 - `exercises[].reps` is an array of strings. One entry applies to every set. Otherwise each set uses its own line when that line exists.
 - `schedule[]` rows that have no matching day (Week 13 Day 6 and Day 7 in the full program) open with the deload text.

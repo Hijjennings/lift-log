@@ -121,6 +121,27 @@ test('logs sets, shows last time across sessions, and checks off a day', async (
   await expect(page.locator('a.day-link[data-week="1"][data-day="1"] .check.on')).toHaveCount(0);
 });
 
+test('optional day flag is a list marker and a note under the title', async ({ page }) => {
+  await loadSample(page);
+  const flagged = page.locator('a.day-link[data-week="1"][data-day="4"]');
+  const plain = page.locator('a.day-link[data-week="1"][data-day="1"]');
+  await expect(flagged).toHaveAttribute('data-flag', 'true');
+  await expect(flagged.getByTestId('flag-mark')).toHaveText('!');
+  await expect(plain).toHaveAttribute('data-flag', 'false');
+  await expect(plain.getByTestId('flag-mark')).toHaveCount(0);
+
+  await page.goto('/#/day/1/4');
+  const note = page.getByTestId('day-flag');
+  await expect(note).toHaveText('Sample flag: fake warning note.');
+  const underTitle = await note.evaluate((element) => {
+    const title = document.getElementById('day-title');
+    return Boolean(title && title.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+  expect(underTitle).toBe(true);
+  await page.goto('/#/day/1/1');
+  await expect(page.getByTestId('day-flag')).toHaveCount(0);
+});
+
 test('rest days are visible and checkable, and next workout skips them', async ({ page }) => {
   await loadSample(page);
   await page.goto('/#/day/1/1');

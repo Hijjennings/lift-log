@@ -148,6 +148,12 @@ export function entryFocus(entry) {
   return cleanText(entry.record?.focus);
 }
 
+/** Optional warning string on a day. Missing, blank, and non-strings are ignored. */
+export function entryFlag(entry) {
+  const raw = entry?.source === 'schedule' ? entry.schedule?.flag : entry?.record?.flag;
+  return typeof raw === 'string' ? cleanText(raw) : '';
+}
+
 export function entryPage(entry) {
   if (entry?.source !== 'day') return null;
   return entry.record?.page ?? null;

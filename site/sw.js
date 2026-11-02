@@ -1,5 +1,5 @@
 /* Lift Log app shell. Same-origin only. Bump CACHE when shipping asset changes. */
-const CACHE = 'liftlog-shell-v3';
+const CACHE = 'liftlog-shell-v4';
 const ASSETS = [
   './index.html',
   './styles.css',

@@ -14,6 +14,7 @@ import {
   repForSet,
   setCompleted,
   setLoggedSet,
+  entryFlag,
   validateProgram,
 } from '../site/model.js';
 
@@ -85,6 +86,17 @@ test('csv export uses the required columns and quotes commas', () => {
   assert.equal(lines[0], 'date,week,day,workout,exercise,set,weight,reps,completed_day');
   assert.match(lines[1], /^[^,]+,1,1,Sample Push,"Sample, Exercise A",1,100,12,true$/);
   assert.equal(csv.endsWith('\n'), true);
+});
+
+test('optional day flag is shown only when it is a non-empty string', () => {
+  const entries = buildEntries(sample);
+  const flagged = entries.find((entry) => entry.week === 1 && entry.day === 4);
+  const plain = entries.find((entry) => entry.week === 1 && entry.day === 1);
+  assert.equal(entryFlag(flagged), 'Sample flag: fake warning note.');
+  assert.equal(entryFlag(plain), '');
+  assert.equal(entryFlag({ source: 'day', record: { flag: '   ' } }), '');
+  assert.equal(entryFlag({ source: 'day', record: { flag: 3 } }), '');
+  assert.equal(entryFlag({ source: 'schedule', schedule: { flag: ' Sample schedule flag ' } }), 'Sample schedule flag');
 });
 
 test('extra set is stored past the prescribed count', () => {

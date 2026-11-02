@@ -196,6 +196,7 @@ function renderHome() {
     for (const entry of days) {
       const complete = model.isComplete(state.logs, entry);
       const title = model.entryTitle(entry);
+      const flag = model.entryFlag(entry);
       const link = h('a', {
         class: 'day-link',
         href: `#/day/${entry.week}/${entry.day}`,
@@ -203,11 +204,15 @@ function renderHome() {
         'data-day': entry.day,
         'data-rest': model.isRestEntry(entry) ? 'true' : 'false',
         'data-schedule': model.isScheduleOnly(entry) ? 'true' : 'false',
-        'aria-label': `${title}${complete ? ', completed' : ''}`,
+        'data-flag': flag ? 'true' : 'false',
+        'aria-label': `${title}${flag ? `, warning: ${flag}` : ''}${complete ? ', completed' : ''}`,
       }, [
         h('span', { class: 'dow' }, (entry.dayOfWeek || '').slice(0, 3)),
         h('span', {}, [
-          h('strong', {}, title),
+          h('span', { class: 'day-name' }, [
+            h('strong', {}, title),
+            flag ? h('span', { class: 'flag-mark', 'data-testid': 'flag-mark', 'aria-hidden': 'true' }, '!') : null,
+          ]),
           model.entryFocus(entry) ? h('small', {}, model.entryFocus(entry)) : null,
           model.isRestEntry(entry) ? h('span', { class: 'pill' }, 'Rest') : null,
           model.isScheduleOnly(entry) ? h('span', { class: 'pill' }, 'Schedule') : null,
@@ -386,11 +391,13 @@ function renderDay(route) {
   const page = model.entryPage(entry);
   const pageNote = entry.source === 'day' ? model.cleanText(entry.record.pageNote) : '';
   const footerNote = entry.source === 'day' ? model.cleanText(entry.record.footerNote) : '';
+  const flag = model.entryFlag(entry);
   const children = [
     h('header', { class: 'topbar' }, [
       h('div', {}, [
         h('p', { class: 'eyebrow' }, entry.dayOfWeek || `Day ${entry.day}`),
         h('h2', { class: 'screen-title', id: 'day-title' }, title),
+        flag ? h('p', { class: 'day-flag', 'data-testid': 'day-flag' }, flag) : null,
       ]),
     ]),
     model.entryFocus(entry) ? h('p', { class: 'focus' }, model.entryFocus(entry)) : null,
